@@ -1,6 +1,6 @@
 Wochentag = input("Wochentag ")
 if Wochentag == "Donnerstag":
-    print("Fast geschaft")
+    print("Fast geschafft")
 elif Wochentag == "Freitag":
     print("Geschafft")
 else:
