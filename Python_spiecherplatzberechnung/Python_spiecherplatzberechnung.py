@@ -1,7 +1,8 @@
-samplingrate = input(int)
-Audiolengt = input(int)
-Anzahlton = input(int)
-Samplingtiefe = input(int)
-ergebnis =0
+samplingrate = int(input()) 
+Audiolengt = int(input()) 
+Anzahlton = int(input()) 
+Samplingtiefe = int(input()) 
+ergebnis = samplingrate * Audiolengt * Anzahlton * Samplingtiefe
+ergebnis/8000
 print(ergebnis)
 
