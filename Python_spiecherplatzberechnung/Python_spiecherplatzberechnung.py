@@ -10,27 +10,27 @@ if Einheit != "":   # Wenn man eine Einheit Vorgibt dann
     if Einheit == "Bit":
         print(Ergebnis,"Bit")
 
-    Ergebnis=Ergebnis/8
+    Ergebnis = Ergebnis / 8
 
     if Einheit == "Btyte":
         print(Ergebnis,"Byte")
 
-    Ergebnis=Ergebnis/1000
+    Ergebnis = Ergebnis / 1000
 
     if Einheit == "Kilobyte":
         print(Ergebnis,"Kb")
 
-    Ergebnis=Ergebnis/1000
+    Ergebnis = Ergebnis / 1000
 
     if Einheit == "Megabyte":
         print(Ergebnis,"Mb")
 
-    Ergebnis=Ergebnis/1000
+    Ergebnis = Ergebnis / 1000
 
     if Einheit == "Gigabyte":
         print(Ergebnis,"Gb")
 
-    Ergebnis=Ergebnis/1000
+    Ergebnis = Ergebnis / 1000
 
     if Einheit =="Terabyte":
         print(Ergebnis,"Tb")
@@ -42,13 +42,13 @@ else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einhe
     if Ergebnis <= 1000:
         print(Ergebnis,"Bit")
 
-    Ergebnis=Ergebnis/8
+    Ergebnis = Ergebnis / 8
 
     while Ergebnis >= 1000:
 
-        Ergebnis = Ergebnis/1000
+        Ergebnis = Ergebnis / 1000
 
-        i= i + 1
+        i = i + 1
         
         if Ergebnis <= 1000:    #Hier wird die Einheit bestimmt
             if i == 1:
@@ -66,5 +66,5 @@ else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einhe
             if i == 5:
                 print(Ergebnis,"Tb")
             if i >5:
-                print(Ergebnis,"ich war zu faul")
+                print("Das Dlc ist bald erhältlich")
             break
