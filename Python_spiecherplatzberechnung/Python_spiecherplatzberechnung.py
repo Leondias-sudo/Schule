@@ -5,8 +5,7 @@ Samplingtiefe = float(input("Samplingtiefe: "))
 Einheit = input("Einheit: ")
 Ergebnis = Samplingrate * Audiolengt * Anzahlton * Samplingtiefe # Hier wird alles zusammen gerechnet
 float(Ergebnis) # Umwandlung in eine Kommazahl um ein genaues Ergebnis zu ermitteln 
-if Einheit != "":   # Wenn man eine Einheit Vorgibt dann
-
+if Einheit != "":   
     if Einheit == "Bit":
         print(Ergebnis,"Bit")
 
@@ -35,7 +34,7 @@ if Einheit != "":   # Wenn man eine Einheit Vorgibt dann
     if Einheit =="Terabyte":
         print(Ergebnis,"Tb")
 
-else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einheit festgelegt
+else: 
 
     i = 0
 
@@ -44,9 +43,7 @@ else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einhe
 
     Ergebnis = Ergebnis / 8
 
-    while Ergebnis >= 1000:
-
-        Ergebnis = Ergebnis / 1000
+    while True:
 
         i = i + 1
         
@@ -68,3 +65,6 @@ else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einhe
             if i >5:
                 print("Das Dlc ist bald erhältlich")
             break
+                
+
+        Ergebnis = Ergebnis / 1000
