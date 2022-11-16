@@ -13,7 +13,7 @@ if Einheit != "":   # Wenn man eine Einheit Vorgibt dann
     Ergebnis = Ergebnis / 8
 
     if Einheit == "Btyte":
-        print(Ergebnis,"Byte")
+        print(Ergebnis,"Bt")
 
     Ergebnis = Ergebnis / 1000
 
@@ -52,7 +52,7 @@ else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einhe
         
         if Ergebnis <= 1000:    #Hier wird die Einheit bestimmt
             if i == 1:
-                print(Ergebnis,"By")
+                print(Ergebnis,"Bt")
 
             if i == 2:
                 print(Ergebnis,"Kb")
