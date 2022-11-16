@@ -63,7 +63,7 @@ else: # Wenn keine oder keine Sinvolle antwort gewählt wird dann wir eine einhe
             if i == 5:
                 print(Ergebnis,"Tb")
             if i >5:
-                print("Das Dlc ist bald erhältlich")
+                print("Das Dlc ist bald erhältlich") # Naja
             
             break
                 
