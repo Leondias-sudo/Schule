@@ -13,6 +13,7 @@ if Einheit != "":
         print(Ergebnis,"Bit")
 
     Ergebnis=Ergebnis/8
+    
     if Einheit == "Btyte":
         print(Ergebnis,"Byte")
 
