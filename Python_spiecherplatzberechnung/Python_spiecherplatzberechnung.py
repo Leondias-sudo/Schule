@@ -2,52 +2,63 @@ Samplingrate = float(input("Samplingrate: "))
 Audiolengt = float(input("Audiolänge: ")) 
 Anzahlton = float(input("Anzahlton: ")) 
 Samplingtiefe = float(input("Samplingtiefe: "))
-Einheit = input("Einheit: ") 
-Ergebnis = Samplingrate * Audiolengt * Anzahlton * Samplingtiefe 
-float(Ergebnis)
+Einheit = input("Einheit: ")
+i = 0
+Ergebnis = Samplingrate * Audiolengt * Anzahlton * Samplingtiefe # Hier wird alles zusammen gerechnet
+float(Ergebnis) # Umwandlung in eine Kommazahl um ein genaues Ergebnis zu ermitteln 
 teilwert = 1000
-teilwertbyte = 8
-float(teilwertbyte)
-float(teilwert)
+#Wenn man eine Einheit Vorgibt dann
 if Einheit != "":
     if Einheit == "Bit":
         print(Ergebnis,"Bit")
 
-    Ergebnis=Ergebnis/teilwertbyte
+    Ergebnis=Ergebnis/8
     if Einheit == "Btyte":
         print(Ergebnis,"Byte")
 
-    Ergebnis=Ergebnis/teilwert
+    Ergebnis=Ergebnis/10005
 
     if Einheit == "Kilobyte":
         print(Ergebnis,"Kb")
 
-    Ergebnis=Ergebnis/teilwert
+    Ergebnis=Ergebnis/1000
 
     if Einheit == "Megabyte":
         print(Ergebnis,"Mb")
 
-    Ergebnis=Ergebnis/teilwert
+    Ergebnis=Ergebnis/1000
 
     if Einheit == "Gigabyte":
         print(Ergebnis,"Gb")
 
-    Ergebnis=Ergebnis/teilwert
+    Ergebnis=Ergebnis/1000
 
     if Einheit =="Terabyte":
         print(Ergebnis,"Tb")
+#Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einheit festgelegt
 else:
-    if Ergebnis <= teilwert:
+    if Ergebnis <= 1000:
         print(Ergebnis,"Bit")
 
-    Ergebnis=Ergebnis/teilwertbyte
-
-    if Ergebnis<= teilwert:
-        print(Ergebnis,"Byte")
+    Ergebnis=Ergebnis/8
 
     while Ergebnis >= teilwert:
-        Ergebnis = Ergebnis/teilwertbyte
+        Ergebnis = Ergebnis/1000
+        i= i + 1
         if Ergebnis <= teilwert:
-            print(Ergebnis)
+            if i == 1:
+                print(Ergebnis,"By")
+
+            if i == 2:
+                print(Ergebnis,"Kb")
+            
+            if i == 3:
+                print(Ergebnis,"Mb")
+
+            if i == 4:
+                print(Ergebnis,"Gb")
+
+            if i == 5:
+                print(Ergebnis,"Tb")
+         
             break
-        
