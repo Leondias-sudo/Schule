@@ -1,11 +1,11 @@
-Samplingrate = float(input("Samplingrate: ")) 
+Samplingrate = float(input("Samplingrate: "))
 Audiolengt = float(input("Audiolänge: ")) 
 Anzahlton = float(input("Anzahlton: ")) 
 Samplingtiefe = float(input("Samplingtiefe: "))
 Einheit = input("Einheit: ")
 Ergebnis = Samplingrate * Audiolengt * Anzahlton * Samplingtiefe # Hier wird alles zusammen gerechnet
 float(Ergebnis) # Umwandlung in eine Kommazahl um ein genaues Ergebnis zu ermitteln 
-if Einheit != "":   
+if Einheit != "":   # Wenn der Benutzer ob eine Einheit gewhählt hat
     if Einheit == "Bit":
         print(Ergebnis,"Bit")
 
@@ -34,7 +34,7 @@ if Einheit != "":
     if Einheit =="Terabyte":
         print(Ergebnis,"Tb")
 
-else: 
+else: # Wenn keine oder keine Sinvolle antwort gewählt wird dann wir eine einheit ermittelt 
 
     i = 0
 
@@ -64,6 +64,7 @@ else:
                 print(Ergebnis,"Tb")
             if i >5:
                 print("Das Dlc ist bald erhältlich")
+            
             break
                 
 
