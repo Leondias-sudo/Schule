@@ -16,7 +16,7 @@ if Einheit != "":
     if Einheit == "Btyte":
         print(Ergebnis,"Byte")
 
-    Ergebnis=Ergebnis/10005
+    Ergebnis=Ergebnis/1000
 
     if Einheit == "Kilobyte":
         print(Ergebnis,"Kb")
