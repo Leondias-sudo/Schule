@@ -3,7 +3,6 @@ Audiolengt = float(input("Audiolänge: "))
 Anzahlton = float(input("Anzahlton: ")) 
 Samplingtiefe = float(input("Samplingtiefe: "))
 Einheit = input("Einheit: ")
-i = 0
 Ergebnis = Samplingrate * Audiolengt * Anzahlton * Samplingtiefe # Hier wird alles zusammen gerechnet
 float(Ergebnis) # Umwandlung in eine Kommazahl um ein genaues Ergebnis zu ermitteln 
 if Einheit != "":   # Wenn man eine Einheit Vorgibt dann
@@ -38,6 +37,8 @@ if Einheit != "":   # Wenn man eine Einheit Vorgibt dann
 
 else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einheit festgelegt
 
+    i = 0
+
     if Ergebnis <= 1000:
         print(Ergebnis,"Bit")
 
@@ -49,7 +50,7 @@ else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einhe
 
         i= i + 1
         
-        if Ergebnis <= 1000:
+        if Ergebnis <= 1000:    #Hier wird die Einheit bestimmt
             if i == 1:
                 print(Ergebnis,"By")
 
@@ -64,5 +65,6 @@ else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einhe
 
             if i == 5:
                 print(Ergebnis,"Tb")
-         
+            if i >5:
+                print(Ergebnis,"ich war zu faul")
             break
