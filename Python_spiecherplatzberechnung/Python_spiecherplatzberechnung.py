@@ -6,14 +6,13 @@ Einheit = input("Einheit: ")
 i = 0
 Ergebnis = Samplingrate * Audiolengt * Anzahlton * Samplingtiefe # Hier wird alles zusammen gerechnet
 float(Ergebnis) # Umwandlung in eine Kommazahl um ein genaues Ergebnis zu ermitteln 
-teilwert = 1000
-#Wenn man eine Einheit Vorgibt dann
-if Einheit != "":
+if Einheit != "":   # Wenn man eine Einheit Vorgibt dann
+
     if Einheit == "Bit":
         print(Ergebnis,"Bit")
 
     Ergebnis=Ergebnis/8
-    
+
     if Einheit == "Btyte":
         print(Ergebnis,"Byte")
 
@@ -36,17 +35,21 @@ if Einheit != "":
 
     if Einheit =="Terabyte":
         print(Ergebnis,"Tb")
-#Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einheit festgelegt
-else:
+
+else:   #Sonst wird bis das kleiner gleich 1000 gerechnet und die passende Einheit festgelegt
+
     if Ergebnis <= 1000:
         print(Ergebnis,"Bit")
 
     Ergebnis=Ergebnis/8
 
-    while Ergebnis >= teilwert:
+    while Ergebnis >= 1000:
+
         Ergebnis = Ergebnis/1000
+
         i= i + 1
-        if Ergebnis <= teilwert:
+        
+        if Ergebnis <= 1000:
             if i == 1:
                 print(Ergebnis,"By")
 
