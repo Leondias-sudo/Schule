@@ -73,5 +73,5 @@ else: # Wenn keine oder keine Sinvolle antwort gewählt wird dann wir eine einhe
             
             break
                 
-
+        
         Ergebnis = Ergebnis / 1000
