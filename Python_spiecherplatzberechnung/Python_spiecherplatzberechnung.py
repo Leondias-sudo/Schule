@@ -38,18 +38,20 @@ else: # Wenn keine oder keine Sinvolle antwort gewählt wird dann wir eine einhe
 
     i = 0
 
+    ist_groesser_als_bit =  True
     if Ergebnis <= 1000:
         print(Ergebnis,"Bit")
+        ist_groesser_als_bit = False
 
     Ergebnis = Ergebnis / 8
 
-    while True:
+    while ist_groesser_als_bit == True:
 
         i = i + 1
         
         if Ergebnis <= 1000:    #Hier wird die Einheit bestimmt
             if i == 1:
-                print(Ergebnis,"Bt")
+                print(Ergebnis,"Byte")
 
             if i == 2:
                 print(Ergebnis,"Kb")
@@ -62,6 +64,7 @@ else: # Wenn keine oder keine Sinvolle antwort gewählt wird dann wir eine einhe
 
             if i == 5:
                 print(Ergebnis,"Tb")
+
             if i >5:
                 print("Das Dlc ist bald erhältlich") # Naja
             
