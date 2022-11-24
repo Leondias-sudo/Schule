@@ -6,6 +6,7 @@ Einheit = input("Einheit: ")
 Ergebnis = Samplingrate * Audiolengt * Anzahlton * Samplingtiefe # Hier wird alles zusammen gerechnet
 float(Ergebnis) # Umwandlung in eine Kommazahl um ein genaues Ergebnis zu ermitteln 
 if Einheit != "":   # Wenn der Benutzer ob eine Einheit gewhählt hat
+    
     if Einheit == "Bit":
         print(Ergebnis,"Bit")
 
@@ -36,16 +37,18 @@ if Einheit != "":   # Wenn der Benutzer ob eine Einheit gewhählt hat
 
 else: # Wenn keine oder keine Sinvolle antwort gewählt wird dann wir eine einheit ermittelt 
 
-    i = 0
-
     ist_groesser_als_bit =  True
-    if Ergebnis <= 1000:
+
+    if Ergebnis <= 999:
         print(Ergebnis,"Bit")
-        ist_groesser_als_bit = False
+
+        ist_groesser_als_bit = False 
 
     Ergebnis = Ergebnis / 8
 
-    while ist_groesser_als_bit == True:
+    i = 0
+
+    while ist_groesser_als_bit == True: #Wenn das Ergebniss kleiner als tausend
 
         i = i + 1
         
