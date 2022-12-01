@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://bin-dez-hex-umrechner.de/ -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Binär-Dezimal-Hexadezimal Umrechner</title>
+	
+	<meta name="description" content="Rechnet schnell und bequem Binär-, Dezimal- und Hexadezimalwerte um.">
+	<meta name="keywords" content="Binär,Dezimal,Hexadezimal,Umrechner,Rechner">
+	<meta name="author" content="LISSWORX">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="https://bin-dez-hex-umrechner.de/BinDezHex.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="manifest" href="https://bin-dez-hex-umrechner.de/manifest.json">
+	<meta name="msapplication-TileImage" content="images/AppIcon144.png">
+	<meta name="msapplication-TileColor" content="#313DC9">
+	<meta name="theme-color" content="#313DC9">
+	<link rel="icon" sizes="192x192" href="https://bin-dez-hex-umrechner.de/images/AppIcon192.png">
+	
+	<style>
+		html { width:100%; height:100%; margin:0px; padding:0px; }
+		body { width:100%; height:100%; margin:0px; padding:0px; background-color:#EEEEEE; font-family:Helvetica,Arial,Verdana; font-size:14px; font-weight:bold; color:#333333; }
+		
+		#AppWindow { position:relative; margin:auto; max-width:640px; background-color:#E7E7E7; border-style:solid; border-width:1px; border-color:#D5D5D5; border-radius:10px; overflow:hidden; }
+		
+		#Header { position:relative; padding-bottom:10px; }
+		a.AppTitle { display:inline-block; padding:7px 10px; border-radius:0px 0px 10px 0px; font-size:14px; font-weight:bold; color:#FFFFFF; text-decoration:none; background:repeating-linear-gradient(to bottom,rgb(130,164,221) 0%,rgb(97,144,223) 50%,rgb(71,128,215) 51%,rgb(89,157,248) 100%); border-style:none solid solid none; border-width:1px; border-color:#3362B6; }
+		a.AppTitle:hover { text-decoration:none; color:#031533; }
+		a.AppTitle:active { color:#031533; }
+		
+		#AppSlogan { position:relative; text-align:center; padding:10px 15px 0px 15px; }
+		a.AppSlogan { font-family:Helvetica,Arial,Verdana; font-size:18px; font-weight:bold; color:#333333; text-decoration:none; }
+		a.AppSlogan:hover { text-decoration:underline; }
+		#AppDesc { position:relative; text-align:center; padding:5px 10px; color:#555555; }
+		
+		input { font-family:Helvetica,Arial,Verdana; font-size:14px; font-weight:bold; color:#333333; border-style:solid; border-width:1px 1px 2px 1px; border-color:#D5D5D5 #D5D5D5 #BEBEBE #D5D5D5; border-radius:5px; padding:7px 5px; outline-style:none; width:100%; box-sizing:border-box; }
+		#IBFrame { position:relative; margin:0px 15px; overflow:hidden; height:120px; background-color:#EEEEEE; border-style:solid; border-width:1px 1px 2px 1px; border-color:#D5D5D5 #D5D5D5 #BEBEBE #D5D5D5; border-radius:5px; }
+		#InfoBox { position:relative; width:100%; height:100%; overflow:hidden; border-style:none; z-index:1; }
+		#InfoBoxLabel { font-family:Helvetica,Arial,Verdana; font-size:12px; font-weight:bold; color:#FFFFFF; background-color:#ADADAD; display:inline-block; padding:4px 10px; border-radius:5px; }
+		
+		.lxButton { box-shadow:inset 0px 1px 0px 0px #BEE2F9; background:linear-gradient(to bottom, #63B8EE 5%, #468CCF 100%); background-color:#63B8EE; border-radius:6px; border:1px solid #3866A3; display:block; cursor:pointer; color:#14396A; font-family:Helvetica,Arial,Verdana; font-size:14px; font-weight:bold; padding:7px 20px; text-decoration:none; text-shadow:0px 1px 0px #7CACDE; text-align:center; }
+		.lxButton:hover { background:linear-gradient(to bottom, #468CCF 5%, #63B8EE 100%); background-color:#468CCF; }
+		.lxButton:active { position:relative; top:1px; }
+		
+		#Footer { position:relative; margin-top:20px; padding:10px; text-align:center; font-size:12px; color:#7D7D7D; text-shadow:1px 1px 0px #FFFFFF; border-top-style:solid; border-top-width:1px; border-top-color:#D1D1D1; }
+		a.Footer { font-size:12px; font-weight:normal; color:#5D5D5D; text-decoration:none; text-shadow:1px 1px 0px #FFFFFF; }
+		a.Footer:hover { color:#225CBA; text-decoration:underline; }
+	</style>
+	
+	<script>
+		var txtBin = null;
+		var txtDec = null;
+		var txtHex = null;
+		var standalone = 0;
+		
+		function startApp() {
+			txtBin = document.getElementById("txtBin");
+			txtDec = document.getElementById("txtDec");
+			txtHex = document.getElementById("txtHex");
+			
+			txtBin.focus();
+			
+			if (window.matchMedia('(display-mode: standalone)').matches) {
+				standalone = 1;
+			}
+			
+			if ('standalone' in window.navigator) {
+				if (window.navigator.standalone === true) standalone = 1;
+			}
+			
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register("/sw.js").then(function() { 
+					console.log("Service Worker registriert.");
+				});
+			}
+			
+			// Load from Server
+			if (window.navigator.onLine) {
+				document.getElementById("InfoBox").src = "https://www.bin-dez-hex-umrechner.de/infobox.php?standalone=" + standalone + "&referrer=" + document.referrer;
+			}
+		}
+		
+		function enterBin(event) {
+			if (event.keyCode != 48 && event.keyCode != 49) {
+				event.preventDefault(); return false;
+			}
+		}
+		
+		function inputBin() {
+			if (txtBin.value != "") {
+				let digit = parseInt(txtBin.value, 2);
+				txtDec.value = digit.toString();
+				txtHex.value = digit.toString(16);
+				txtHex.value = txtHex.value.toUpperCase();
+			} else {
+				txtDec.value = "";
+				txtHex.value = "";
+			}
+		}
+		
+		function enterDec(event) {
+			if (event.keyCode < 48 || event.keyCode > 57) {
+				event.preventDefault(); return false;
+			}
+		}
+		
+		function inputDec() {
+			if (txtDec.value != "") {
+				txtBin.value = parseInt(txtDec.value).toString(2);
+				let digit = parseInt(txtBin.value, 2);
+				txtHex.value = digit.toString(16);
+				txtHex.value = txtHex.value.toUpperCase();
+			} else {
+				txtBin.value = "";
+				txtHex.value = "";
+			}
+		}
+		
+		function enterHex(event) {
+			switch(event.keyCode) {
+				case 48:
+				case 49:
+				case 50:
+				case 51:
+				case 52:
+				case 53:
+				case 54:
+				case 55:
+				case 56:
+				case 57:
+				case 97:
+				case 65:
+				case 98:
+				case 66:
+				case 99:
+				case 67:
+				case 100:
+				case 68:
+				case 101:
+				case 69:
+				case 102:
+				case 70:
+					break;
+				default:
+					event.preventDefault(); return false;
+			}
+		}
+		
+		function inputHex() {
+			if (txtHex.value != "") {
+				if (txtHex.value != "") txtHex.value = txtHex.value.toUpperCase();
+				let dec = parseInt(txtHex.value,16);
+				txtBin.value = dec.toString(2);
+				txtDec.value = dec.toString();
+			} else {
+				txtBin.value = "";
+				txtDec.value = "";
+			}
+		}
+		
+		function clearFields() {
+			txtBin.value = "";
+			txtDec.value = "";
+			txtHex.value = "";
+		}
+	</script>
+	
+</head>
+
+<body onload="startApp()">
+	<div id="Background" style="position:relative; padding:10px;">
+		<div id="AppWindow">
+			<div id="Header">
+				<a class="AppTitle" href="https://bin-dez-hex-umrechner.de/index.html">Bin-Dez-Hex Umrechner</a>
+			</div>
+			
+			<div id="AppSlogan">
+				<a href="https://bin-dez-hex-umrechner.de/index.html" class="AppSlogan">Binär-Dezimal-Hexadezimal Umrechner</a>
+			</div>
+			<div id="AppDesc">
+				Rechnet schnell und bequem Binär-, Dezimal- und Hexadezimalwerte um.
+			</div>
+			
+			<div style="position:relative; padding:10px 15px 5px 15px;">
+				Binär:
+			</div>
+			<div style="position:relative; padding:0px 15px;">
+				<input id="txtBin" type="text" maxlength="32" onkeypress="enterBin(event)" oninput="inputBin()">
+			</div>
+			<div style="position:relative; padding:10px 15px 5px 15px;">
+				Dezimal:
+			</div>
+			<div style="position:relative; padding:0px 15px;">
+				<input id="txtDec" type="text" maxlength="12" onkeypress="enterDec(event)" oninput="inputDec()">
+			</div>
+			<div style="position:relative; padding:10px 15px 5px 15px;">
+				Hexadezimal:
+			</div>
+			<div style="position:relative; padding:0px 15px;">
+				<input id="txtHex" type="text" maxlength="12" onkeypress="enterHex(event)" oninput="inputHex()">
+			</div>
+			
+			<div style="position:relative; padding:15px;">
+				<a class="lxButton" href="https://bin-dez-hex-umrechner.de/#" onclick="clearFields(); return false;">Felder löschen</a>
+			</div>
+			
+			<div style="position:relative; padding:10px 15px 5px 15px;">
+				<span id="InfoBoxLabel">Infobox</span>
+			</div>
+			<div id="IBFrame">
+				<iframe id="InfoBox" src="./Binär-Dezimal-Hexadezimal Umrechner_files/infobox.html" scrolling="no" frameborder="0"></iframe>
+			</div>
+			
+			<!-- Footer -->
+			<div id="Footer">
+				Copyright © 2019 <a class="Footer" href="https://www.lissworx.de/">Lissworx.de</a>. Alle Rechte vorbehalten.<br><a class="Footer" href="https://nutzungsbedingungen.lissworx.de/">Nutzungsbedingungen</a> | <a class="Footer" href="https://datenschutz.lissworx.de/">Datenschutz</a> | <a class="Footer" href="https://impressum.lissworx.de/">Impressum</a>
+			</div>
+		</div>
+	</div>
+
+
+</body></html>
