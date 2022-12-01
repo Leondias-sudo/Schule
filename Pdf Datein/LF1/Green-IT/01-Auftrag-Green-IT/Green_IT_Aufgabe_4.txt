@@ -1,0 +1,6 @@
+Lebenserhaltung
+    	Lebenserhaltung von Geräten, denn die schlimmste Emission entsteht bei der Herstellung, deshalb je länger ein Gerät hält, desto weniger Emissionen
+Rechenzentren
+    	Digitale Dienste die mit den Rechenzentren zusammenhängen plus deine eigenen Geräte hat den schlimmsten Einfluss auf die CO2 Emissionen jedoch kann man auf Rechenzentren die Aufgaben und die Auslastung besser verteilen.
+Standby
+ 	Geräte schalten sich aus wenn sie nicht mehr benötigt werden.
