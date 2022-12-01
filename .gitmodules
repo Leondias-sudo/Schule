@@ -1,0 +1,4 @@
+[submodule "Schule_PDF"]
+	path = Schule_PDF
+	url = https://github.com/Leondias-sudo/Schule_PDF
+	branch = main
