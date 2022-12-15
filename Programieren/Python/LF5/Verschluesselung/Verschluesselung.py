@@ -1,5 +1,6 @@
 Zahl = 50
 i=1
+a = list
 while i != Zahl:
     if Zahl<=1:
         print(f"{Zahl} ist keine Primzahl")
