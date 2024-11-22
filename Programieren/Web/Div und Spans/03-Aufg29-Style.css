@@ -1,0 +1,52 @@
+body{
+  background-color: yellow;
+  font-family: Verdana;
+  font-size: xx-large;
+  color: white;
+  /* Standardeinstellungen des Browsers umgehen und alle Abstände auf Null setzen: */
+  margin : 0px;
+  padding: 0px;
+}
+
+h1{
+  color: black;
+}
+
+.rot, .gruen, .blau, .orange, .grau, .purple{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+}
+
+.rot{
+  background-color: red;
+  
+  left: 200px;
+  top: 200px;
+}
+
+.gruen{
+  background-color: green;
+  top: 400px;
+  left: 400px;
+}
+
+.blau{
+  color: white;
+  background-color: blue;
+  top: 600px;
+  left: 600px;
+}
+
+.orange{
+  background-color: orange;
+  left: 600px;
+  top: 200px;
+}
+
+.grau{
+  background-color: gray;
+  top: 600px;
+  left: 200px;
+}
+

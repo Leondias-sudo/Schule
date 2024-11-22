@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Personen>
+    <Person>
+        <Nachname>Thien</Nachname>
+        <Vorname>Niko</Vorname>
+        <Strasse>Tabakgasse 17</Strasse>
+        <PLZ>49661</PLZ>
+        <Ort>Cloppenburg</Ort>
+        <IntBew>B</IntBew>
+    </Person>
+    <Person>
+        <Nachname>Zuschlag</Nachname>
+        <Vorname>Herta</Vorname>
+        <Strasse>Boxenring 3</Strasse>
+        <PLZ>49661</PLZ>
+        <Ort>Cloppenburg</Ort>
+        <IntBew>A</IntBew>
+    </Person>
+</Personen>
